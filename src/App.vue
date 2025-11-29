@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -25,9 +25,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-</style> -->
+</style>
 
-<script>
+<!-- <script>
 import { getBahanAjar } from './services/api.js';
 
 export default {
@@ -46,4 +46,4 @@ export default {
     }
   }
 };
-</script>
+</script> -->

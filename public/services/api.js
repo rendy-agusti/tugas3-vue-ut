@@ -1,5 +1,16 @@
+// public/services/api.js
+
 export async function getBahanAjar() {
-  const res = await fetch(process.env.BASE_URL + 'data/dataBahanAjar.json');
-  if (!res.ok) throw new Error('Gagal memuat JSON');
+  const url = `${window.location.origin}/data/dataBahanAjar.json`;
+
+  console.log("Fetching:", url);
+
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    console.error("Status:", res.status);
+    throw new Error("Gagal memuat JSON");
+  }
+
   return await res.json();
 }

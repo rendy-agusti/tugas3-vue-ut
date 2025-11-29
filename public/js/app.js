@@ -1,4 +1,5 @@
-import { getBahanAjar } from '../services/api.js';
+// public/js/app.js
+import { getBahanAjar } from "../services/api.js";
 
 new Vue({
     el: '#app',
@@ -11,10 +12,17 @@ new Vue({
 
     async mounted() {
         try {
+            console.log("Vue mounted → mulai fetch...");
             this.db = await getBahanAjar();
-            console.log("Data berhasil dimuat", this.db);
+            console.log("DATA BERHASIL DIMUAT:", this.db);
         } catch (err) {
-            console.error(err);
+            console.error("FETCH ERROR:", err);
+        }
+    },
+
+    methods: {
+        formatRupiah(x) {
+            return "Rp " + Number(x).toLocaleString("id-ID");
         }
     }
 });

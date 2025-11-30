@@ -1,16 +1,14 @@
-// public/services/api.js
-
 export async function getBahanAjar() {
-  const url = `${window.location.origin}/data/dataBahanAjar.json`;
+  try {
+    const response = await fetch('../data/dataBahanAjar.json')
 
-  console.log("Fetching:", url);
+    if (!response.ok) {
+      throw new Error('Gagal memuat JSON');
+    }
 
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    console.error("Status:", res.status);
-    throw new Error("Gagal memuat JSON");
+    return await response.json();
+  } catch (err) {
+    console.error('FETCH ERROR:', err);
+    throw err;
   }
-
-  return await res.json();
 }
